@@ -38,7 +38,8 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                session()->flash('danger', '请登陆后查看此页面');
+                return redirect()->guest('login');
             }
         }
 
